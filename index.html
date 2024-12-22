@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Search</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+        #logo-placeholder {
+            width: 272px;
+            height: 92px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #search-container {
+            width: 584px;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #search-container:hover{
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        #search-input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 4px 0;
+        }
+        #search-button {
+            background-color: #f8f9fa;
+            border: 1px solid #dadce0;
+            color: #3c4043;
+            font-size: 14px;
+            padding: 9px 15px;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        #search-button:hover{
+            border-color: #b9b9b9;
+        }
+        #search-button:active{
+            border-color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="logo-placeholder">
+        <img src="assets/logo.png" alt="Your Logo">
+    </div>
+
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search with DuckDuckGo">
+        <button id="search-button">Search</button>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById("search-button")
+
+        function performSearch() {
+            const query = searchInput.value;
+            if (query) {
+                const duckduckgoUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+                window.location.href = duckduckgoUrl;
+            }
+        }
+
+        searchInput.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") { // Use event.key instead of keyCode
+                event.preventDefault();
+                performSearch();
+            }
+        });
+        searchButton.addEventListener("click", performSearch);
+    </script>
+
+</body>
+</html>
