@@ -17,17 +17,21 @@
         }
 
         #logo-placeholder {
-            width: 272px;
-            height: 92px;
+            width: 150px; /* Adjust as needed */
+            height: 150px; /* Adjust as needed - same as width for square logo */
             margin-bottom: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden; /* Important for clipping */
         }
 
         #logo-placeholder img {
+            width: auto;
+            height: auto;
             max-width: 100%;
             max-height: 100%;
+            display: block; /* Prevents small space below image */
         }
 
         #search-container {
@@ -77,7 +81,7 @@
 
     <div id="search-container">
         <input type="text" id="search-input" placeholder="Search with DuckDuckGo">
-        <button id="search-button">Search</button>
+                <button id="search-button">Search</button>
     </div>
 
     <script>
@@ -93,7 +97,7 @@
         }
 
         searchInput.addEventListener("keyup", function(event) {
-            if (event.key === "Enter") { // Use event.key instead of keyCode
+            if (event.key === "Enter") {
                 event.preventDefault();
                 performSearch();
             }
