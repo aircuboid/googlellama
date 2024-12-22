@@ -80,7 +80,7 @@
     </div>
 
     <div id="search-container">
-        <input type="text" id="search-input" placeholder="Search with DuckDuckGo">
+        <input type="text" id="search-input" placeholder="Search with Llama">
                 <button id="search-button">Search</button>
     </div>
 
@@ -91,7 +91,7 @@
         function performSearch() {
             const query = searchInput.value;
             if (query) {
-                const duckduckgoUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+                const duckduckgoUrl = `https://duckduckgo.com/?q=llama+${encodeURIComponent(query)}`;
                 window.location.href = duckduckgoUrl;
             }
         }
